@@ -76,7 +76,7 @@ const clickText02 = document.querySelector(".js_text02");
 button.addEventListener("click", function () {
     click(clickText);
     click(clickText02);
-    // click(counter(count));
+    
 });
 
 // document.querySelector(".date").textContent = new Date();
