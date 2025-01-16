@@ -79,6 +79,26 @@ button.addEventListener("click", function () {
     // click(counter(count));
 });
 
+// function myFunction(event, element) {
+//     alert('Element value: ' + element.value + ', Event type: ' + event.type);
+// }
+
+const clickInput = (element) => {
+    if (element.value === 'Click Me') {
+
+        console.log('click me');
+
+    } else if (element.value === 'on Me') {
+
+        console.log('on Me');
+
+    } else if (element.value === 'nemui...') {
+
+        console.log('okiteru');
+
+    }
+}
+
 // document.querySelector(".date").textContent = new Date();
 // Hero text animations
 // const tl = gsap.timeline();
@@ -116,11 +136,7 @@ button.addEventListener("click", function () {
 
 // });
 
-const triggerSec = document.querySelector(".triggerBox");
 
-const cont07 = document.getElementById("cont07");
-
-const test = document.querySelector(".test");
 
 // const as_Gallery = gsap.timeline({
 //     scrollTrigger: {
@@ -190,6 +206,13 @@ const swiper = new Swiper(".swiper", {
     },
 });
 
+
+const triggerSec = document.querySelectorAll(".triggerBox");
+
+const cont07 = document.getElementById("cont07");
+
+const test = document.querySelector(".test");
+
 const test_Gallery = (el) => {
     return gsap.timeline({
         scrollTrigger: {
@@ -201,23 +224,34 @@ const test_Gallery = (el) => {
 };
 
 const asGroups = document.getElementById("cont01");
-const textContent = triggerSec.textContent;
 
-const triggerLength = textContent.length;
+triggerSec.forEach(sec => {
+
+    const textContent = sec.textContent;
+
+    const triggerLength = textContent.length;
+
+    console.log(triggerLength);
 
 
-console.log(triggerLength);
+    console.log(triggerSec);
+
+    test_Gallery(asGroups).from(
+        sec,
+        { text: textJumble(triggerLength), duration: 2 },
+        ">"
+    );
+    
+    test_Gallery(test).from(test, { text: textJumble(300), duration: 2 });
+    
+    test_Gallery(test).from(test, { text: textJumble(15), duration: 2 });
+
+    
+});
 
 
-test_Gallery(asGroups).from(
-    triggerSec,
-    { text: textJumble(triggerLength), duration: 2 },
-    ">"
-);
 
-test_Gallery(test).from(test, { text: textJumble(300), duration: 2 });
 
-test_Gallery(test).from(test, { text: textJumble(15), duration: 2 });
 
 console.log("hello");
 
@@ -230,11 +264,65 @@ const words = [
     "present",
 ];
 
+// 数値の配列
+const numbers = [10, 20, 30, 40, 50];
+
+// 文字列の配列
+const strings = ["apple", "banana", "cherry", "date", "elderberry"];
+
+// ブール値の配列
+const booleans = [true, false, true, false, true];
+
+// 混合データ型の配列
+const mixed = [42, "hello", true, null, { name: "John" }];
+
+// オブジェクトの配列
+const objects = [
+    { id: 1, name: "Alice" },
+    { id: 2, name: "Bob" },
+    { id: 3, name: "Charlie" }
+];
+
+// 配列の配列 (多次元配列)
+const matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+// 空の配列
+const emptyArray = [];
+
+// ランダムな数値で埋められた配列
+const randomNumbers = Array.from({ length: 5 }, () => Math.floor(Math.random() * 100));
+
+// アルファベットの配列
+const alphabet = Array.from("abcdefghijklmnopqrstuvwxyz");
+
+// 1から10までの数値を生成
+const range = Array.from({ length: 10 }, (_, i) => i + 1);
+
+console.log("Numbers:", numbers);
+console.log("Strings:", strings);
+console.log("Booleans:", booleans);
+console.log("Mixed:", mixed);
+console.log("Objects:", objects);
+console.log("Matrix:", matrix);
+console.log("Empty Array:", emptyArray);
+console.log("Random Numbers:", randomNumbers);
+console.log("Alphabet:", alphabet);
+console.log("Range:", range);
+
+
 const result = (els) => {
     return els.filter((el) => el.length > 6);
 };
 
 console.log(result(words));
+console.log(result(numbers));
+console.log(result(strings));
+
+
 
 const element = document.getElementById("headerMenu");
 const style = window.getComputedStyle(element);
@@ -255,10 +343,10 @@ let firstVideo;
 let firstText;
 
 
-if(Math.random() < 0.5){
+if (Math.random() < 0.5) {
     firstVideo = 'Bd2LThO0PcQ';
     // firstText = 'GHOST IN THE SHELL';
-}else{
+} else {
     firstVideo = 'MM8RufZr5lw';
     // firstText = ''
 }
@@ -296,6 +384,8 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
+
+
 //ミュートにしてから再生する設定
 function onPlayerReady(event) {
     event.target.mute();
@@ -311,6 +401,8 @@ const goat = document.getElementById('goat');
 
 let videoId;
 
+const maskVideo = document.getElementById('youtube-mask');
+
 const changeVideo = (ytPlayer, videoId) => {
     ytPlayer.loadVideoById(videoId);
 }
@@ -324,9 +416,12 @@ btn.forEach(function (element) {
         if (element.id === 'crab') {
             // animals.classList.add('crab');
             animals.textContent = 'CRAB PARTY!!!!';
+            maskVideo.classList.add('crab');
+            animals.classList.add('crabH1');
         } else if (element.id === 'shark') {
             // animals.classList.add('crab');
             animals.textContent = 'SMILE YOU SON OF A B***H';
+            maskVideo.classList.add('shark');
         } else if (element.id === 'wolf') {
             // animals.classList.add('crab');
             animals.textContent = 'WOLF IS SO COOL…';
@@ -562,19 +657,19 @@ console.log(modalButton);
 
 let modalId;
 
-modalButton.forEach(function(btn) {
-    btn.addEventListener('click',function() {
+modalButton.forEach(function (btn) {
+    btn.addEventListener('click', function () {
 
         modalId = this.getAttribute('data-id');
-        
+
         for (let i = 0; i < modal.length; i++) {
 
-            if(modal[i].id === modalId){
+            if (modal[i].id === modalId) {
                 modal[i].classList.add('is-open');
             }
 
         }
-        
+
     })
 });
 // modalButton.forEach(btn => {
@@ -586,7 +681,7 @@ modalButton.forEach(function(btn) {
 
 //         modalId = this.getAttribute('data-id');
 
-        
+
 //         for (let i = 0; i < modal.length; i++) {
 
 //             if(modal[i].id === modalId){
@@ -594,12 +689,12 @@ modalButton.forEach(function(btn) {
 //             }
 
 //         }
-        
+
 //     })
 // });
 
 modalClose.forEach(btn => {
-    btn.addEventListener('click',() => {
+    btn.addEventListener('click', () => {
 
         // modal.forEach(element => {
         //     element.classList.remove('is-open');
@@ -608,7 +703,7 @@ modalClose.forEach(btn => {
         for (let i = 0; i < modal.length; i++) {
             modal[i].classList.remove('is-open');
         }
-        
+
     })
 });
 
@@ -621,3 +716,39 @@ modalClose.forEach(btn => {
 // modalClose.addEventListener('click', () => { 
 //     modal.classList.remove('is-open');
 // });
+
+// スクロール検知用の関数
+function handleScroll() {
+    // .movieWrap要素を取得
+    const movieWrap = document.querySelector('.movieWrap');
+
+    // .headerBox要素を取得
+    const headerBox = document.querySelector('.headerBox');
+
+    // .movieWrapと.headerBoxの位置とサイズを取得
+    const movieRect = movieWrap.getBoundingClientRect();
+    const headerRect = headerBox.getBoundingClientRect();
+
+    // 画面の高さを取得
+    const windowHeight = window.innerHeight;
+
+    // .movieWrapが画面外に出ているか判定
+    const isMovieOutOfViewport = movieRect.bottom < 0 || movieRect.top > windowHeight;
+
+    // 画面外に出ている場合は.headerBoxにheaderBoxScクラスを追加、そうでない場合は削除
+    if (isMovieOutOfViewport) {
+        headerBox.classList.add('headerBoxSc');
+    } else {
+        headerBox.classList.remove('headerBoxSc');
+    }
+}
+
+// スクロールイベントにhandleScroll関数を登録
+window.addEventListener('scroll', handleScroll);
+
+// ページ読み込み時にも初回の判定を行う
+window.addEventListener('load', handleScroll);
+
+
+
+

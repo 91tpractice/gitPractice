@@ -520,7 +520,7 @@ img {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: clamp(1rem, 0.272rem + 3.11vw, 4rem);
   color: white;
 }
 
@@ -654,20 +654,273 @@ h1 {
   padding-bottom: 2rem;
 }
 
-.cont01_box {
+#cont01 {
+  width: 100vw;
+}
+#cont01 .titleBox::before {
+  content: "->";
+}
+#cont01_box {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
-.cont01_items {
+#cont01_items {
   flex: 1 1 20rem;
 }
-.cont01_item {
+#cont01_item {
   width: 100px;
   height: 100px;
   background-color: rgb(109, 109, 109);
 }
 
+.crab::before {
+  content: "🦀";
+  position: absolute;
+  top: 80%;
+  font-size: 1em;
+  -webkit-animation: jump 4s linear 0s infinite alternate;
+  animation: jump 4s linear 0s infinite alternate;
+}
+
+.crab::after {
+  content: "🦀";
+  position: absolute;
+  top: 20%;
+  font-size: 1em;
+  -webkit-animation: jump 4s linear 0s infinite alternate-reverse;
+  animation: jump 4s linear 0s infinite alternate-reverse;
+}
+
+.crabH1::before {
+  content: "🦀";
+  position: absolute;
+  top: 90%;
+  z-index: -1;
+  font-size: 0.5em;
+  -webkit-animation: jump2 4s linear 0s infinite alternate;
+  animation: jump2 4s linear 0s infinite alternate;
+}
+
+.shark::before {
+  content: "🦈";
+  position: absolute;
+  top: 80%;
+  font-size: 1em;
+  -webkit-animation: jump 4s linear 0s infinite alternate;
+  animation: jump 4s linear 0s infinite alternate;
+}
+
+.shark::after {
+  content: "🦈";
+  position: absolute;
+  top: 20%;
+  font-size: 1em;
+  -webkit-animation: jump 4s linear 0s infinite alternate-reverse;
+  animation: jump 4s linear 0s infinite alternate-reverse;
+}
+
+@-webkit-keyframes jump {
+  0% {
+    transform: rotate(-10deg);
+    left: -10vw;
+  }
+  5% {
+    transform: rotate(10deg);
+  }
+  10% {
+    transform: rotate(-10deg);
+  }
+  15% {
+    transform: rotate(10deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  35% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  45% {
+    transform: rotate(10deg);
+  }
+  51% {
+    transform: rotate(-10deg);
+  }
+  55% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  65% {
+    transform: rotate(10deg);
+  }
+  70% {
+    transform: rotate(-10deg);
+  }
+  76% {
+    transform: rotate(10deg);
+  }
+  80% {
+    transform: rotate(-10deg);
+  }
+  85% {
+    transform: rotate(10deg);
+  }
+  90% {
+    transform: rotate(-10deg);
+  }
+  96% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+    left: 100vw;
+  }
+}
+@keyframes jump {
+  0% {
+    transform: rotate(-10deg);
+    left: -10vw;
+  }
+  5% {
+    transform: rotate(10deg);
+  }
+  10% {
+    transform: rotate(-10deg);
+  }
+  15% {
+    transform: rotate(10deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  35% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  45% {
+    transform: rotate(10deg);
+  }
+  51% {
+    transform: rotate(-10deg);
+  }
+  55% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  65% {
+    transform: rotate(10deg);
+  }
+  70% {
+    transform: rotate(-10deg);
+  }
+  76% {
+    transform: rotate(10deg);
+  }
+  80% {
+    transform: rotate(-10deg);
+  }
+  85% {
+    transform: rotate(10deg);
+  }
+  90% {
+    transform: rotate(-10deg);
+  }
+  96% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+    left: 100vw;
+  }
+}
+@keyframes jump2 {
+  0% {
+    transform: rotate(-10deg);
+    left: -10%;
+  }
+  5% {
+    transform: rotate(10deg);
+  }
+  10% {
+    transform: rotate(-10deg);
+  }
+  15% {
+    transform: rotate(10deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  35% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  45% {
+    transform: rotate(10deg);
+  }
+  51% {
+    transform: rotate(-10deg);
+  }
+  55% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  65% {
+    transform: rotate(10deg);
+  }
+  70% {
+    transform: rotate(-10deg);
+  }
+  76% {
+    transform: rotate(10deg);
+  }
+  80% {
+    transform: rotate(-10deg);
+  }
+  85% {
+    transform: rotate(10deg);
+  }
+  90% {
+    transform: rotate(-10deg);
+  }
+  96% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+    left: 100%;
+  }
+}
 .cont02_flex {
   display: flex;
   gap: 2rem;
