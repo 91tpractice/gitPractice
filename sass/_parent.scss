@@ -277,7 +277,11 @@ h1 {
 }
 
 #cont01 {
-    width: calc(1200/1200*100vw);
+    width: calc(800/1200*100vw);
+
+    @include mq() {
+        width: calc(320/375*100vw);
+    }
 
     .titleBox::before{
         content: "->";
@@ -942,6 +946,10 @@ animation: jump 4s linear 0s infinite alternate-reverse;
 h1{
     font-size: 6rem;
     font-weight: bold;
+
+    @include mq() {
+        font-size: calc(30/375*100vw);
+    }
 }
 
 h2{
