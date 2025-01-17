@@ -79,6 +79,59 @@ button.addEventListener("click", function () {
     
 });
 
+
+
+const textArray　= [{
+    reply: '消す方法なんてねえよ(弱虫モンブランが流れる)',
+    post: 'お前を消す方法'
+}]
+
+const btnPost = document.querySelector('.yesinfo');
+
+
+console.log(btnPost);
+
+
+btnPost.addEventListener('click',()=>{
+
+    
+    console.log('1');
+    
+
+    const postText = document.getElementById('input');
+    console.log(postText.textContent);
+
+    textArray.forEach(text => {
+
+        console.log('2');
+        
+        console.log(text.post);
+        
+
+        if(text.post == postText.textContent ){
+
+            console.log('3');
+    
+            postText.textContent = text.reply;
+            
+            console.log(postText);
+            
+    
+        } else if(text.post == ''){
+
+            postText.textContent = 'さっ　コイ　オッラー！'
+
+        }else{
+
+            postText.textContent = 'ハハッ 何言ってるか全然判んねｗ';
+
+        }
+    
+        
+    });
+})
+
+
 // function myFunction(event, element) {
 //     alert('Element value: ' + element.value + ', Event type: ' + event.type);
 // }
@@ -342,14 +395,39 @@ var ytPlayer;
 let firstVideo;
 let firstText;
 
+const videos = [
+    { 
+        id: 'Bd2LThO0PcQ', 
+        title: 'GHOST IN THE SHELL' 
+    },{ 
+        id: 'MM8RufZr5lw', 
+        title: 'SERIAL EXPERIMENTS LAIN' 
+    },{ 
+        id: 'KhciEq8JvAs', 
+        title: 'MEMENTO MORI', 
+        style: {color: '#00bbfa'}
+    }
+];
 
-if (Math.random() < 0.5) {
-    firstVideo = 'Bd2LThO0PcQ';
-    // firstText = 'GHOST IN THE SHELL';
-} else {
-    firstVideo = 'MM8RufZr5lw';
-    // firstText = ''
-}
+
+const randomIndex = Math.floor(Math.random() * videos.length);
+firstVideo = videos[randomIndex].id;
+animals.textContent = videos[randomIndex].title;
+
+Object.assign(animals.style, videos[randomIndex].style);
+
+
+
+// if (Math.random() < 0.5) {
+//     firstVideo = 'Bd2LThO0PcQ';
+//     animals.textContent = 'GHOST IN THE SHELL';
+// } else {
+//     firstVideo = 'MM8RufZr5lw';
+//     animals.textContent = 'SERIAL EXPERIMENTS LAIN';
+// }  {
+//     firstVideo = 'KhciEq8JvAs';
+//     animals.textContent = 'MEMENTO MORI';
+// }
 
 var ytData = [
     {
