@@ -117,7 +117,7 @@ btnPost.addEventListener('click',()=>{
             console.log(postText);
             
     
-        } else if(text.post.value === ''){
+        } else if(text.post == ''){
 
             postText.textContent = 'さっ　コイ　オッラー！'
 
