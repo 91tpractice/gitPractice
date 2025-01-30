@@ -76,15 +76,27 @@ const clickText02 = document.querySelector(".js_text02");
 button.addEventListener("click", function () {
     click(clickText);
     click(clickText02);
-    
+
 });
 
 
 
-const textArray　= [{
-    reply: '消す方法なんてねえよ(弱虫モンブランが流れる)',
+const textArray = [{
+    reply: '(弱虫モンブランが流れる)消す方法なんてねえよ',
     post: 'お前を消す方法'
-}]
+},{
+    reply: 'おやすみ！もう二度と来ないでね！',
+    post: 'おはよう'
+},{
+    reply: 'ゲームやろうぜ！極周回しよ！',
+    post: 'こんばんは'
+},{
+    reply: 'ラーメン食べに行こ！',
+    post: 'こんにちは'
+},{
+    reply: 'ジョーズしか勝たん。でもシャークネード見た後にジョーズ見ると薄味に感じる',
+    post:'サメ映画'
+},];
 
 const btnPost = document.querySelector('.yesinfo');
 
@@ -92,43 +104,33 @@ const btnPost = document.querySelector('.yesinfo');
 console.log(btnPost);
 
 
-btnPost.addEventListener('click',()=>{
+btnPost.addEventListener('click', () => {
 
-    
+
     console.log('1');
-    
+
 
     const postText = document.getElementById('input');
     console.log(postText.textContent);
 
-    textArray.forEach(text => {
 
-        console.log('2');
-        
-        console.log(text.post);
-        
+    for (let i = 0; i < textArray.length; i++) {
 
-        if(text.post == postText.textContent ){
 
-            console.log('3');
-    
-            postText.textContent = text.reply;
-            
-            console.log(postText);
-            
-    
-        } else if(text.post == ''){
+        if (textArray[i].post == postText.textContent) {
 
-            postText.textContent = 'さっ　コイ　オッラー！'
+            postText.textContent = textArray[i].reply;
 
-        }else{
+        } /* else  {
 
             postText.textContent = 'ハハッ 何言ってるか全然判んねｗ';
 
-        }
-    
-        
-    });
+        } */
+
+    }
+
+
+
 })
 
 
@@ -294,12 +296,12 @@ triggerSec.forEach(sec => {
         { text: textJumble(triggerLength), duration: 2 },
         ">"
     );
-    
+
     test_Gallery(test).from(test, { text: textJumble(300), duration: 2 });
-    
+
     test_Gallery(test).from(test, { text: textJumble(15), duration: 2 });
 
-    
+
 });
 
 
@@ -396,16 +398,16 @@ let firstVideo;
 let firstText;
 
 const videos = [
-    { 
-        id: 'Bd2LThO0PcQ', 
-        title: 'GHOST IN THE SHELL' 
-    },{ 
-        id: 'MM8RufZr5lw', 
-        title: 'SERIAL EXPERIMENTS LAIN' 
-    },{ 
-        id: 'KhciEq8JvAs', 
-        title: 'MEMENTO MORI', 
-        style: {color: '#00bbfa'}
+    {
+        id: 'Bd2LThO0PcQ',
+        title: 'GHOST IN THE SHELL'
+    }, {
+        id: 'MM8RufZr5lw',
+        title: 'SERIAL EXPERIMENTS LAIN'
+    }, {
+        id: 'KhciEq8JvAs',
+        title: 'MEMENTO MORI',
+        style: { color: '#00bbfa' }
     }
 ];
 
